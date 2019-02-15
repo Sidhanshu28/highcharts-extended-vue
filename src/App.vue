@@ -13,7 +13,6 @@
 import HeaderApp from "./components/HeaderApp";
 import Leftbar from "./components/Leftbar";
 import CenterContainer from "./components/centercontainer/CenterContainer";
-// import clicks from './catch-clicks'
 
 export default {
   name: "App",

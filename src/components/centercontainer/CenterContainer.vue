@@ -49,19 +49,23 @@ export default {
     DataTable
   },
   methods: {
+    //function to show dashboard
     showDashboard: function() {
       this.showDropdown = true;
     },
+    //function to show table
     showTable: function(){
       this.showtable = true;
     }
   },
   watch: {
+    //watcher to check for changes in dropdown selection
     selected: function(v) {
       EventBus.$emit("changeSelection", v);
     }
   },
   mounted() {
+    //getting calls from left bar and pie chart
     EventBus.$on("showDashboard", this.showDashboard);
     EventBus.$on("showtable", this.showTable);
   },

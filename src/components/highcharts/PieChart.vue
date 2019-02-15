@@ -15,6 +15,7 @@ export default {
     EventBus.$on("changeSelection", this.updatePie);
   },
   methods: {
+    //function to update pie chart
     updatePie: function(value) {
       var data = value == "Domain 1" ? params.domain1 : params.domain2;
       this.chartOptions.series[0].data = [...data];

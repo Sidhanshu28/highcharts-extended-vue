@@ -38,21 +38,29 @@ import { EventBus } from "../event-bus";
 export default {
   name: "DataTable",
   beforeMount() {
+    //bridge to get calls from pie charts
     EventBus.$on("updateTable", this.updateTable);
   },
   methods: {
+    //function to update first table
     updateTable: function(params) {
       this.cols = [{ sno: 1, name: params.name, val: params.y }];
-      this.createDataTable();
+      this.linkedTable = false;
     },
+    //function to update second table
     createDataTable: function() {
       this.colsLinked = [];
       this.linkedTable = true;
       for (let i = 0; i < 3; i++) {
+        //pushing rows and cols in table two
         this.colsLinked.push({
-          sno: i+1,
-          name: this.cols[0].name + "-v" + (i+1),
-          val: 'prev val - '+ this.cols[0].val + '/ new value - '+ (Math.random() * 100.0).toFixed(2)
+          sno: i + 1,
+          name: this.cols[0].name + "-v" + (i + 1),
+          val:
+            "prev val - " +
+            this.cols[0].val +
+            "/ new value - " +
+            (Math.random() * 100.0).toFixed(2)
         });
       }
     }
